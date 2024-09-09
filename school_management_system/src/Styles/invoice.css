@@ -1,0 +1,84 @@
+/* General container styling */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading styling */
+.container h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Form styling */
+form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Input and textarea styling */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Button styling */
+form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* Invoice display styling */
+.invoice {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.invoice h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+.invoice p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.invoice p strong {
+  font-weight: bold;
+  color: #333;
+}
+ 

@@ -1,0 +1,124 @@
+/* Modal background  6R23D06DG68 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: all 300ms ease;
+  margin: 0 auto;
+}
+
+/* Modal content */
+.modal-main {
+  top: 7rem;
+  background-color: var(--modal-background);
+  opacity: 1;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  transition: all 300ms ease;
+  position: relative;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+
+}
+.modal-main .close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.modal-main form{
+    width: 79%;
+    padding: var(--padding-1);
+    background-color: var(--modal-background);
+    color: white;
+}
+.modal-main form input{
+    background-color: var(--modal-background);
+    color: white;
+}
+
+.modal-main form select{
+        background-color: var(--modal-background);
+        color: white;
+}
+.modal-main .submit{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0.2rem 0.5rem;
+    /* border: 1px solid #45a049; */
+    gap: 0.5rem;
+  transition: all 600ms ease;
+
+}
+.modal-main .submit .submit-btn{
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+.modal-main .submit .closed-btn{
+    background-color: rgb(20, 19, 19);
+    border: 2px solid var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+.modal-main .submit button:hover{
+    scale:1.2;
+}
+
+/* Hidden modal class */
+.display-none {
+  display: none;
+}
+
+/* Visible modal class */
+.display-block {
+  display: block;
+}
+
+/* Button styling */
+
+
+/* .close-btn:hover {
+  background-color: #d32f2f;
+} */
+
+.open-modal-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.open-modal-btn:hover {
+  background-color: #45a049;
+}

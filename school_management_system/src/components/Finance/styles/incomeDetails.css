@@ -1,0 +1,102 @@
+.income-top{
+height: 13vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-size: 1.3rem;
+padding: var(--padding-1);
+}
+.finance-content .navigation{
+    width: 250px;
+    height: 12vh;
+    scale: 0.9;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem 0.5rem;
+    margin-right: 2rem;
+    margin-bottom: -3.4rem;
+
+}
+.finance-content .navigation .navs{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size:1.2rem;
+}
+.finance-content .navigation .navs span{
+    font-size:3.2rem;
+
+}
+
+.finance-content  .table-area{
+    /* padding: var(--padding-1); */
+    width: 90%;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    align-items: center;
+    /* border: 2px solid red; */
+    justify-content: end;
+}
+.detail-table-encompass{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.finance-content  .income-detail{
+    /* padding: var(--padding-1); */
+    width: 76%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: end; */
+    align-items: center;
+    margin-right: 1.8rem;
+}
+.income-detail table{
+    width: 100% !important;
+    /* display: flex; */
+    /* flex-direction: column; */
+    justify-content: end;
+    /* display: none; */
+}
+.finance-content .table-area table{
+    width: 76%;
+    /* justify-self: end; */
+    
+}
+
+.finance-content .income-detail .heading{
+   
+    /* justify-content: space-evenly; */
+    align-items: center;
+    justify-self: end;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 2px solid yellow; */
+}
+.finance-content .table-area .first-table .heading{
+     width: 87%;
+    display: flex;
+    margin-left: 2rem;
+}
+.finance-content .table-area .second-table .heading{
+    display: flex;
+     width: 80%;
+    margin-left: 3rem;
+}
+.finance-content .table-area .pagination{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    /* justify-self: end; */
+    padding: 0.5rem;
+    margin-top: -1rem;
+}
+
+.finance-content .table-area .pagination button, span {
+    scale: 0.8;
+}
