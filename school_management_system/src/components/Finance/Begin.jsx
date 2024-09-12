@@ -65,44 +65,42 @@ const Index = () => {
           <div className="cards-grid">
             <Card
               title="Total Revenue"
-              value="$120,000"
+              value="₵120,000"
               icon={<FaDollarSign />}
             />
             <Card
               title="Total Expenditure"
-              value="$90,000"
+              value="₵90,000"
               icon={<FaChartPie />}
             />
-            <Card title="Net Profit" value="$30,000" icon={<FaChartLine />} />
+            <Card title="Net Profit" value="₵30,000" icon={<FaChartLine />} />
           </div>
         </div>
       </div>
       <div className="table-wrapper">
-        <div className="table-area">
-          <div className="first-table">
-            <div className="heading">
-              <h2>Revenue </h2>
-              <div className="add-new">
-                Add new category{" "}
-                <button onClick={handleOpen}>
-                  <IoIosAddCircle />{" "}
-                </button>{" "}
-              </div>
+        <div className="table-one">
+          <div className="heading">
+            <h2>Revenue </h2>
+            <div className="add-new">
+              Add new category{" "}
+              <button onClick={handleOpen}>
+                <IoIosAddCircle />{" "}
+              </button>{" "}
             </div>
-            <IncomeTable show={show} setShow={setShow}/>
           </div>
-          <div className="second-table">
-            <div className="heading">
-              <h2>Expenditure </h2>
-              <div className="add-new expenditure">
-                Add new{" "}
-                <button onClick={Sopen}>
-                  <IoIosAddCircle />{" "}
-                </button>{" "}
-              </div>
+          <IncomeTable show={show} setShow={setShow} />
+        </div>
+        <div className="table-two">
+          <div className="heading">
+            <h2>Expenditure </h2>
+            <div className="add-new expenditure">
+              Add new{" "}
+              <button onClick={Sopen}>
+                <IoIosAddCircle />{" "}
+              </button>{" "}
             </div>
-            <ExpenditureTable open={open } setOpen={setOpen} />
           </div>
+          <ExpenditureTable open={open} setOpen={setOpen} />
         </div>
       </div>
     </>

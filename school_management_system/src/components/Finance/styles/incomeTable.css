@@ -38,7 +38,12 @@ td {
 .table-area .second-table table th:nth-child(3){
     width: 10%;
 }
-
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr {
+  border: 2px solid #dddddd; /* Adding border */
+}
 .heading{
     padding: 1rem 0.2rem;
     display: flex;
@@ -93,4 +98,8 @@ td {
     align-items: center;
     justify-content: end;
     font-size: 0.9rem;
+}
+.remove-deleted{
+    transform: translateY(10rem) rotateZ(25deg);
+    opacity: 0;
 }

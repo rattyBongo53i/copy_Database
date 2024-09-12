@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import logo from "../assets/logo-bg.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Sidebar = ({ toggleSidebar, isMenuOpen }) => {
+  const location = useLocation();
 
   return (
     <>
@@ -21,7 +22,17 @@ const Sidebar = ({ toggleSidebar, isMenuOpen }) => {
             <span className="material-symbols-outlined">grid_view</span>
             <h3>Dashboard</h3>
           </NavLink>
-          <NavLink to="/finance">
+          <NavLink
+            to="/finance"
+            isActive={(match, location) => {
+              // Custom logic: Activate Finance link for both /finance and /invoice
+              return (
+                location.pathname.startsWith("/finance") ||
+                location.pathname.startsWith("/invoice")
+              );
+            }}
+            activeClassName="active"
+          >
             <span className="material-symbols-outlined">pending</span>
             <h3>Fee Management</h3>
             {/* <span className="pending-count"> 26 </span> */}

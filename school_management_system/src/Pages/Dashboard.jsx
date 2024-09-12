@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 import "../Styles/dashboard.css";
 // import logo from "../assets/logo-bg.png";
 import Sidebar from "../components/Sidebar";
@@ -75,201 +77,217 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="wrapper">
-        <Sidebar toggleSidebar={toggleSidebar} isMenuOpen={isMenuOpen} />
-        <main>
-          <div className="date">
-            <input
-              type="date"
-              id="date-input"
-              value={selectedDate}
-              onChange={handleDateChange}
-            />
-          </div>
-
-          <div className="insights">
-            <div className="sales">
-              <span className="material-symbols-outlined">directions_walk</span>
-              <div className="middle">
-                <div className="left">
-                  <h3>Total No. Students</h3>
-                  <h1>250</h1>
-                </div>
-                <div className="progress">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div className="number">
-                    <p>81%</p>
-                  </div>
-                </div>
-              </div>
-
-              <small className="text-muted">Last 24 Hours</small>
-            </div>
-            {/* <!-- ------------------End of Sales --------------- --> */}
-
-            <div className="expenses">
-              <span className="material-symbols-outlined">account_balance</span>
-              <div className="middle">
-                <div className="left">
-                  <h3>Revenue</h3>
-                  <h1>18,023</h1>
-                </div>
-                <div className="progress">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div className="number">
-                    <p>62%</p>
-                  </div>
-                </div>
-              </div>
-
-              <small className="text-muted">Last 24 Hours</small>
+      <motion.div
+        initial={{ opacity: 0, scale: 1.7 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.1,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <div className="wrapper">
+          <Sidebar toggleSidebar={toggleSidebar} isMenuOpen={isMenuOpen} />
+          <main>
+            <div className="date">
+              <input
+                type="date"
+                id="date-input"
+                value={selectedDate}
+                onChange={handleDateChange}
+              />
             </div>
 
-            {/* <!-- -------------------End of Expenses------------- --> */}
-
-            <div className="income">
-              <span className="material-symbols-outlined">
-                stacked_line_chart{" "}
-              </span>
-              <div className="middle">
-                <div className="left">
-                  <h3>Active Classes</h3>
-                  <h1>5</h1>
-                </div>
-                <div className="progress">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div className="number">
-                    <p>44%</p>
+            <div className="insights">
+              <div className="sales">
+                <span className="material-symbols-outlined">
+                  directions_walk
+                </span>
+                <div className="middle">
+                  <div className="left">
+                    <h3>Total No. Students</h3>
+                    <h1>250</h1>
                   </div>
-                </div>
-              </div>
-
-              <small className="text-muted">Last 24 Hours</small>
-            </div>
-          </div>
-
-          {/* <List /> */}
-
-          {/* time table */}
-          <div className="timetable-container">
-            <div className="header-navigation">
-              <div></div>
-              <div className="manage">
-                <Link> Manage Timetable</Link>
-              </div>
-            </div>
-            <div className="timetable">
-              <div className="header">Time/Day</div>
-              {days.map((day) => (
-                <div key={day} className="header">
-                  {day}
-                </div>
-              ))}
-              {classes.map((classItem, index) => (
-                <React.Fragment key={index}>
-                  <div className="class-info">
-                    <strong>{classItem.name}</strong> <br />
-                    {classItem.age} <br />
-                    {classItem.level}
-                  </div>
-                  {days.map((day) => (
-                    <div key={day} className="class-slot">
-                      Class {index + 1} <br /> {day}
+                  <div className="progress">
+                    <svg>
+                      <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div className="number">
+                      <p>81%</p>
                     </div>
-                  ))}
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </main>
-        <div className="right-side">
-          <div className="top">
-            <button id="menu-btn" onClick={() => toggleSidebar()}>
-              <span className="material-symbols-outlined active">menu</span>
-            </button>
-            <div className="theme-toggler" onClick={() => themeToggle()}>
-              <span className="material-symbols-outlined active">
-                light_mode
-              </span>
-              <span className="material-symbols-outlined">dark_mode</span>
-            </div>
-            <div className="profile">
-              <div className="info">
-                <small className="text-muted">Admin</small>
-              </div>
-              <div className="profile-photo">
-                <img src="./images/profile-1.jpg" alt="" srcSet="admin" />
-              </div>
-            </div>
-          </div>
-          {/* <!-- ----- end of top---------- --> */}
-
-          <div className="recent-updates">
-            {/* <h2>Summary</h2> */}
-            <div className="updates">
-              <div className="update">
-                Paid <span className="finance-summary">1200.00</span>
-              </div>
-              <div className="update">
-                Arrears
-                <span className="finance-summary"> -345</span>
-              </div>
-            </div>
-            <div className="sales-analytics">
-              <h2> Class Sessions</h2>
-              <div className="item online">
-                <div className="icon">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </div>
-                <div className="right">
-                  <div className="info">
-                    <h3>Hibiscus</h3>
-                    <small className="text-muted"> last 24 hours</small>
                   </div>
-                  <h5 className="success">+39%</h5>
-                  <h3>4567</h3>
                 </div>
+
+                <small className="text-muted">Last 24 Hours</small>
+              </div>
+              {/* <!-- ------------------End of Sales --------------- --> */}
+
+              <div className="expenses">
+                <span className="material-symbols-outlined">
+                  account_balance
+                </span>
+                <div className="middle">
+                  <div className="left">
+                    <h3>Revenue</h3>
+                    <h1>18,023</h1>
+                  </div>
+                  <div className="progress">
+                    <svg>
+                      <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div className="number">
+                      <p>62%</p>
+                    </div>
+                  </div>
+                </div>
+
+                <small className="text-muted">Last 24 Hours</small>
               </div>
 
-              <div className="item offline">
-                <div className="icon">
-                  <span className="material-symbols-outlined">local_mall</span>
-                </div>
-                <div className="right">
-                  <div className="info">
-                    <h3>Daisy/Tulip</h3>
-                    <small className="text-muted"> last 24 hours</small>
+              {/* <!-- -------------------End of Expenses------------- --> */}
+
+              <div className="income">
+                <span className="material-symbols-outlined">
+                  stacked_line_chart{" "}
+                </span>
+                <div className="middle">
+                  <div className="left">
+                    <h3>Active Classes</h3>
+                    <h1>5</h1>
                   </div>
-                  <h5 className="danger">-17%</h5>
-                  <h3>1100</h3>
+                  <div className="progress">
+                    <svg>
+                      <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div className="number">
+                      <p>44%</p>
+                    </div>
+                  </div>
+                </div>
+
+                <small className="text-muted">Last 24 Hours</small>
+              </div>
+            </div>
+
+            {/* <List /> */}
+
+            {/* time table */}
+            <div className="timetable-container">
+              <div className="header-navigation">
+                <div></div>
+                <div className="manage">
+                  <Link> Manage Timetable</Link>
                 </div>
               </div>
-
-              <div className="item customers">
-                <div className="icon">
-                  <span className="material-symbols-outlined">person</span>
-                </div>
-                <div className="right">
-                  <div className="info">
-                    <h3>Sunlac</h3>
-                    <small className="text-muted"> last 24 hours</small>
+              <div className="timetable">
+                <div className="header">Time/Day</div>
+                {days.map((day) => (
+                  <div key={day} className="header">
+                    {day}
                   </div>
-                  <h5 className="success">+24%</h5>
-                  <h3>839</h3>
+                ))}
+                {classes.map((classItem, index) => (
+                  <React.Fragment key={index}>
+                    <div className="class-info">
+                      <strong>{classItem.name}</strong> <br />
+                      {classItem.age} <br />
+                      {classItem.level}
+                    </div>
+                    {days.map((day) => (
+                      <div key={day} className="class-slot">
+                        Class {index + 1} <br /> {day}
+                      </div>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </main>
+          <div className="right-side">
+            <div className="top">
+              <button id="menu-btn" onClick={() => toggleSidebar()}>
+                <span className="material-symbols-outlined active">menu</span>
+              </button>
+              <div className="theme-toggler" onClick={() => themeToggle()}>
+                <span className="material-symbols-outlined active">
+                  light_mode
+                </span>
+                <span className="material-symbols-outlined">dark_mode</span>
+              </div>
+              <div className="profile">
+                <div className="info">
+                  <small className="text-muted">Admin</small>
+                </div>
+                <div className="profile-photo">
+                  <img src="./images/profile-1.jpg" alt="" srcSet="admin" />
+                </div>
+              </div>
+            </div>
+            {/* <!-- ----- end of top---------- --> */}
+
+            <div className="recent-updates">
+              {/* <h2>Summary</h2> */}
+              <div className="updates">
+                <div className="update">
+                  Paid <span className="finance-summary">1200.00</span>
+                </div>
+                <div className="update">
+                  Arrears
+                  <span className="finance-summary"> -345</span>
+                </div>
+              </div>
+              <div className="sales-analytics">
+                <h2> Class Sessions</h2>
+                <div className="item online">
+                  <div className="icon">
+                    <span className="material-symbols-outlined">
+                      shopping_cart
+                    </span>
+                  </div>
+                  <div className="right">
+                    <div className="info">
+                      <h3>Hibiscus</h3>
+                      <small className="text-muted"> last 24 hours</small>
+                    </div>
+                    <h5 className="success">+39%</h5>
+                    <h3>4567</h3>
+                  </div>
+                </div>
+
+                <div className="item offline">
+                  <div className="icon">
+                    <span className="material-symbols-outlined">
+                      local_mall
+                    </span>
+                  </div>
+                  <div className="right">
+                    <div className="info">
+                      <h3>Daisy/Tulip</h3>
+                      <small className="text-muted"> last 24 hours</small>
+                    </div>
+                    <h5 className="danger">-17%</h5>
+                    <h3>1100</h3>
+                  </div>
+                </div>
+
+                <div className="item customers">
+                  <div className="icon">
+                    <span className="material-symbols-outlined">person</span>
+                  </div>
+                  <div className="right">
+                    <div className="info">
+                      <h3>Sunlac</h3>
+                      <small className="text-muted"> last 24 hours</small>
+                    </div>
+                    <h5 className="success">+24%</h5>
+                    <h3>839</h3>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

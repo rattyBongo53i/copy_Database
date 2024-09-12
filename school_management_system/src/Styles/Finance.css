@@ -73,6 +73,7 @@ finance-content::-webkit-scrollbar, -scrollbar {
   text-decoration: none;
   font-size: 1.2rem;
   /* cursor: pointer !important; */
+  color: var(--color-dark);
 
 }
 
@@ -102,37 +103,68 @@ finance-content::-webkit-scrollbar, -scrollbar {
 }
 
 .box-right{
-    /* border: 3px solid rosybrown; */
     width: 100%;
     padding:  0.1rem;
 
 }
 
-/* .table-wrapper{
+.table-wrapper{
     width: 100%;
-    scale: 0.9;
-    position: relative;
-    /* overflow-x: hidden; *
-} */
-.table-area{
-    width: 100%;
-    border-radius: 12px;
+    /* position: relative; */
+    border: 3px solid rosybrown;
+    padding: 0.3rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: -2rem;
+    margin-bottom: 4rem;
+   
+}
+.table-one{
+    border: 1px solid rgb(130, 22, 22);
+    width: 61%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.table-two{
+    border: 1px solid rgb(33, 130, 22);
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.table-one .heading{
+    padding: 1rem 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+.table-area-double{
+    width: 70%;
+    border-radius: 12px;
+
     padding: var(--padding-1);
 }
 
-.table-area .first-table{
-    width: auto;
-    padding: 0.5rem;
-     box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+.table-area-double .first-table{
+    width: 70%;
+    padding: 0.5rem 0.1rem;
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 7px;
+    background-color: var(--color-light);
 }
-.table-area .second-table{
-    width: auto;
+.table-area-double .second-table{
+    width: 100%;
     display: block;
     padding: 0.5rem;
     box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-light);
     border-radius: 7px;
 }
 /* ================== media queries smaller tablets and mobile ==================== */

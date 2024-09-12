@@ -1,1 +1,2 @@
 - https://www.youtube.com/shorts/h_GNYk3WSYs havana
+- https://www.youtube.com/shorts/rNIQnJ5Ba1Q funny scares

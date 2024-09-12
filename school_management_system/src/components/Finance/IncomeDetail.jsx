@@ -12,19 +12,35 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { FaArrowLeft } from "react-icons/fa";
 import Sidebar from "../Sidebar";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 
 export const IncomeDetail = () => {
   const [show, setShow] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [incomeData, setIncomeData] = useState([]);
   // State to manage the selected option
   const [selectedOption, setSelectedOption] = useState("");
   // set page title
   useEffect(() => {
     document.title = "RSI | Finance";
-  }, []);
-
-  const incomeData = [
+    }, []);
+    
+    useEffect(() => { 
+        const url = `${import.meta.env.VITE_App_API_URL}/get-fees`;
+        try{
+        (async () => {
+        let response = await fetch(url);
+        let data = await response.json();
+        setIncomeData(data);
+        // console.log(data);
+      })();
+    } catch (error) {
+      console.error("Error fetching fee details:", error);
+    }
+    });
+  
+    const rincomeData = [
     {
       id: 1,
       fee: "3 UNIFORM SET (PRIMARY)",
@@ -277,95 +293,112 @@ export const IncomeDetail = () => {
   const handleClose = () => setShow(false);
 
   // randomuser.me/api/
-  https: return (
+  return (
     <>
-      <div className="finance-wrapper">
-        <div className="left">
-          <Sidebar />
-        </div>
-        <div className="finance-content">
-          <div className="income-top">
-            <h1>Finance</h1>
-            <span></span>
+      <motion.div
+        initial={{ opacity: 0, scale: 1.7 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.1,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <div className="finance-wrapper">
+          <div className="left">
+            <Sidebar />
           </div>
-          <div className="navigation">
-            <Link to="/finance">
-              <span className="navs">
-                <span className="material-symbols-outlined">chevron_left</span>
-                home
-              </span>
-            </Link>
-          </div>
-          <div className="detail-table-encompass">
-            <div className="table-area income-detail">
-              <div className="heading">
-                <h2>Revenue List </h2>
-                <div className="add-new expenditure">
-                  Add new{" "}
-                  <button onClick={handleOpen}>
-                    <IoIosAddCircle />{" "}
-                  </button>{" "}
-                </div>
-              </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Fee</th>
-                    <th>Amount</th>
-                    <th>category</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentDetails.map((income, index) => (
-                    <tr key={index}>
-                      <td>{income.fee}</td>
-                      {/* <td>�� 10,000</td> */}
-                      <td>{income.amount}</td>
-                      <td>{income.category}</td>
-                      <td className="action">
-                        {" "}
-                        <button>
-                          <CiEdit />
-                        </button>
-                        <button>
-                          <RiDeleteBinLine />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div className="pagination">
-                {/* <div> */}
-                <button
-                  className="pagination-button"
-                  onClick={prevPage}
-                  disabled={currentPage === 1}
-                >
-                  Previous
-                </button>
-                <span>
-                  {" "}
-                  Page {currentPage} of{" "}
-                  {Math.ceil(incomeData.length / detailsPerPage)}{" "}
+          <div className="finance-content">
+            <div className="income-top">
+              <h1>Finance</h1>
+              <span></span>
+            </div>
+            <div className="navigation">
+              <Link to="/finance">
+                <span className="navs">
+                  <span className="material-symbols-outlined">
+                    chevron_left
+                  </span>
+                  home
                 </span>
-                <button
-                  className="pagination-button"
-                  onClick={nextPage}
-                  disabled={
-                    currentPage ===
-                    Math.ceil(incomeData.length / detailsPerPage)
-                  }
-                >
-                  Next
-                </button>
+              </Link>
+            </div>
+            <div className="detail-table-encompass">
+              <div className="table-area income-detail">
+                <div className="heading">
+                  <h2>Revenue List </h2>
+                  <div className="add-new expenditure">
+                    Add new{" "}
+                    <button onClick={handleOpen}>
+                      <IoIosAddCircle />{" "}
+                    </button>{" "}
+                  </div>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Fee</th>
+                      <th>Amount</th>
+                      <th>category</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {currentDetails.map((income, index) => (
+                      <tr key={index}>
+                        <td>{income.name}</td>
+                        {/* <td>�� 10,000</td> */}
+                        <td>{income.amount}</td>
+                        <td>{income.category}</td>
+                        <td className="action">
+                          {" "}
+                          <button>
+                            <CiEdit />
+                          </button>
+                          <button>
+                            <RiDeleteBinLine />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <div className="pagination">
+                  {/* <div> */}
+                  <button
+                    className="pagination-button"
+                    onClick={prevPage}
+                    disabled={currentPage === 1}
+                  >
+                    Previous
+                  </button>
+                  <span>
+                    {" "}
+                    Page {currentPage} of{" "}
+                    {Math.ceil(incomeData.length / detailsPerPage)}{" "}
+                  </span>
+                  <button
+                    className="pagination-button"
+                    onClick={nextPage}
+                    disabled={
+                      currentPage ===
+                      Math.ceil(incomeData.length / detailsPerPage)
+                    }
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          <Modal
+            show={show}
+            handleClose={handleClose}
+            handleSelectChange={handleSelectChange}
+            CategoryList={CategoryList}
+          />
         </div>
-        <Modal show={show} handleClose={handleClose}  handleSelectChange={handleSelectChange} CategoryList={CategoryList}/>
-      </div>
+      </motion.div>
     </>
   );
 };
