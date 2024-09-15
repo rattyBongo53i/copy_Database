@@ -151,3 +151,43 @@
 .open-modal-btn:hover {
   background-color: #45a049;
 }
+
+.modal-main-invoice {
+  top: 1rem;
+  background-color: var(--color-light);
+  opacity: 1;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  transition: all 0.4s ease;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 62%;
+  position: relative;
+  height: 97vh;
+  overflow: hidden;
+  overflow-y: scroll;
+
+}
+
+.modal-main-invoice img{
+  max-width: 3.5rem;
+  max-height: 3.5rem;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+.modal-main-invoice .close-btn{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color:var(--color-dark);
+  cursor: pointer;
+}

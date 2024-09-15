@@ -111,7 +111,7 @@ finance-content::-webkit-scrollbar, -scrollbar {
 .table-wrapper{
     width: 100%;
     /* position: relative; */
-    border: 3px solid rosybrown;
+    /* border: 3px solid rosybrown; */
     padding: 0.3rem;
     display: flex;
     justify-content: space-between;
@@ -121,7 +121,7 @@ finance-content::-webkit-scrollbar, -scrollbar {
    
 }
 .table-one{
-    border: 1px solid rgb(130, 22, 22);
+    /* border: 1px solid rgb(130, 22, 22); */
     width: 61%;
     display: flex;
     flex-direction: column;
@@ -130,7 +130,7 @@ finance-content::-webkit-scrollbar, -scrollbar {
     margin: 0 auto;
 }
 .table-two{
-    border: 1px solid rgb(33, 130, 22);
+    /* border: 1px solid rgb(33, 130, 22); */
     width: 35%;
     display: flex;
     flex-direction: column;

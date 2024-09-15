@@ -24,14 +24,14 @@ const Sidebar = ({ toggleSidebar, isMenuOpen }) => {
           </NavLink>
           <NavLink
             to="/finance"
-            isActive={(match, location) => {
-              // Custom logic: Activate Finance link for both /finance and /invoice
-              return (
-                location.pathname.startsWith("/finance") ||
-                location.pathname.startsWith("/invoice")
-              );
-            }}
-            activeClassName="active"
+            // isActive={(match, location) => {
+            //   // Custom logic: Activate Finance link for both /finance and /invoice
+            //   return (
+            //     location.pathname.startsWith("/finance") ||
+            //     location.pathname.startsWith("/invoice")
+            //   );
+            // }}
+            // activeClassName="active"
           >
             <span className="material-symbols-outlined">pending</span>
             <h3>Fee Management</h3>

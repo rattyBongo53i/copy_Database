@@ -1,6 +1,6 @@
 .base-wrapper{
    display: grid;
-    grid-template-columns: 14rem auto 20rem;
+    grid-template-columns: 14rem auto 10rem;
     gap: 1rem;
     width: 100%;
     overflow: hidden;
